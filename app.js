@@ -29,5 +29,17 @@ const atualizarTela = () => {
 
 }
 
+const inserirItem = (evento) => {
+    const tecla = evento.key;
+      const tarefa = evento.target.value;
+    if(tecla === 'Enter') {
+        banco.push({"tarefa": tarefa, "status": ""});
+        atualizarTela();
+        evento.target.value = '';
+    }
+}
 
+document.getElementById('newItem').addEventListener('keypress',inserirItem);
+
+atualizarTela();
 
